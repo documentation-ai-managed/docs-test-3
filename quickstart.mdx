@@ -1,0 +1,114 @@
+---
+title: Getting Started with Test
+description: Set up your Test account and create your first documentation project in just a few minutes.
+---
+
+<Callout kind="info" title="Prerequisites">
+Before starting, ensure you have:
+- A modern web browser (Chrome, Firefox, or Safari)
+- An email address for account verification
+- Optional: Test CLI for advanced uploads (`npm install -g test-cli`)
+</Callout>
+
+## Create Your Test Account
+
+Sign up for Test in under a minute. Test provides a centralized space to organize your project documentation.
+
+<Steps>
+  <Step title="Visit the Dashboard" icon="monitor">
+    Navigate to `https://dashboard.example.com` and click **Sign Up**.
+  </Step>
+  <Step title="Enter Your Details" icon="user">
+    Provide your email, create a password, and verify your account via email.
+  </Step>
+  <Step title="Complete Onboarding" icon="check-circle">
+    Answer a few quick questions about your project to personalize your workspace.
+  </Step>
+</Steps>
+
+## Set Up Your First Project
+
+Once logged in, create a new documentation project.
+
+<Steps>
+  <Step title="Create New Project" icon="plus">
+    Click **New Project** in the dashboard and enter a name like `My Docs`.
+  </Step>
+  <Step title="Configure Settings" icon="settings">
+    Select your preferred theme and enable features like search and versioning.
+  </Step>
+  <Step title="Save and Access" icon="save">
+    Your project is now live at a unique URL like `https://docs.example.com/my-docs`.
+  </Step>
+</Steps>
+
+## Upload Initial Documents
+
+Add content to your project using the web interface or CLI.
+
+<Tabs>
+  <Tab title="Web Upload" icon="upload">
+    Drag and drop Markdown, PDF, or image files into the **Documents** section.
+    
+    <Callout kind="tip">
+      Supported formats: `.md`, `.mdx`, `.pdf`, `.png`, `.jpg`.
+    </Callout>
+  </Tab>
+  <Tab title="CLI Upload" icon="terminal">
+    Use the Test CLI for bulk uploads.
+    
+````bash
+test-cli login --email your@email.com
+test-cli project select my-docs
+test-cli upload ./docs/*.md
+````
+  </Tab>
+</Tabs>
+
+<CodeGroup tabs="JavaScript,Python">
+```javascript
+// Initialize Test SDK
+import { Test } from 'test-sdk';
+
+const test = new Test({ apiKey: 'YOUR_API_KEY' });
+await test.projects.create({ name: 'My Docs' });
+```
+```python
+# Initialize Test SDK
+from test_sdk import Test
+
+test = Test(api_key="YOUR_API_KEY")
+test.projects.create(name="My Docs")
+```
+</CodeGroup>
+
+## Basic Interface Tour
+
+Explore the main sections of your Test dashboard.
+
+<Columns cols={3}>
+  <Card title="Editor" icon="edit-3" href="#editor-section">
+    Write and preview Markdown/MDX documents in real-time.
+  </Card>
+  <Card title="Themes" icon="palette" href="#themes-section">
+    Customize colors, fonts, and layouts for your brand.
+  </Card>
+  <Card title="Analytics" icon="bar-chart-3" href="#analytics-section">
+    Track views, search queries, and popular pages.
+  </Card>
+</Columns>
+
+## Next Steps
+
+<Columns cols={2}>
+  <Card title="Authentication" icon="shield" href="/authentication">
+    Secure your projects with API keys and webhooks.
+  </Card>
+  <Card title="Advanced Features" icon="zap" href="/introduction">
+    Dive deeper into collaboration and versioning.
+  </Card>
+</Columns>
+
+<Callout kind="success">
+  Congratulations! You've set up your first Test project. Customize it further and invite your team.
+</Callout>

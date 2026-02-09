@@ -1,0 +1,130 @@
+---
+title: Changelog
+description: Track the evolution of Test with details on recent updates, new features, and improvements.
+---
+
+## Recent Updates
+
+<Callout kind="info" title="Stay Updated">
+Subscribe to our RSS feed or follow us on GitHub to get notified about new releases. Check the [GitHub releases page](https://github.com/example/test/releases) for full release notes and assets.
+</Callout>
+
+Track all changes to Test in this changelog. Updates appear in reverse chronological order (newest first). Each release includes new features, improvements, bug fixes, and any breaking changes.
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added real-time dashboard updates for live monitoring
+- Introduced webhook support for custom integrations
+
+## Improvements
+
+- Enhanced performance of API responses by `>30%`
+- Updated UI components with better accessibility support
+
+## Bug Fixes
+
+- Fixed intermittent authentication failures during peak hours
+- Resolved issue with pagination in large datasets
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Support for multi-factor authentication (MFA)
+- New analytics export to CSV and PDF formats
+
+## Bug Fixes
+
+- Corrected error handling for invalid API keys
+- Fixed dashboard refresh loop in certain browsers
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["breaking", "feature"]}>
+
+## Breaking Changes
+
+- Removed legacy v0.x API endpoints; migrate to v1 endpoints
+
+## New Features
+
+- Core dashboard with customizable widgets
+- Full API documentation and SDK support
+- User management and role-based access control
+
+## Initial Release
+
+- Complete setup wizard for quick onboarding
+- Integration with popular services like Slack and email notifications
+
+</Update>
+
+## Upgrading to the Latest Version
+
+Follow these steps to upgrade Test smoothly.
+
+<Steps>
+  <Step title="Backup Your Data" icon="database">
+
+  Always back up your configuration and data before upgrading.
+
+  ```bash
+  cp -r /path/to/test/config /backup/test-config-$(date +%Y%m%d)
+  ```
+
+  </Step>
+  <Step title="Update Package" icon="package">
+    <Tabs>
+      <Tab title="npm" icon="nodejs">
+      ```bash
+      npm install test@latest
+      ```
+      </Tab>
+      <Tab title="Docker" icon="docker">
+      ```bash
+      docker pull example/test:latest
+      docker-compose up -d
+      ```
+      </Tab>
+    </Tabs>
+  </Step>
+  <Step title="Run Migrations" icon="database">
+    ```bash
+    test migrate
+    ```
+  </Step>
+  <Step title="Restart Service" icon="refresh-cw">
+    Restart your Test instance and verify functionality.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+After upgrading, review the migration guide in each release notes for version-specific instructions.
+</Callout>
+
+## Next Steps
+
+<Columns cols={3}>
+  <Card title="GitHub Releases" icon="github" href="https://github.com/example/test/releases" target="_blank">
+    Download assets and view detailed changelogs.
+  </Card>
+  <Card title="Migration Guide" icon="book-open" href="/quickstart">
+    Step-by-step instructions for major version upgrades.
+  </Card>
+  <Card title="Report Issues" icon="bug" href="https://github.com/example/test/issues/new" target="_blank">
+    Found a bug? Help us improve Test.
+  </Card>
+</Columns>
+
+<Expandable title="Deprecated Features" default-open="false">
+The following features are scheduled for removal in v2.0.0:
+
+- Legacy API v0 endpoints (use v1 instead)
+- Basic auth (switch to API keys or OAuth)
+
+Plan your migration accordingly.
+</Expandable>

@@ -1,0 +1,154 @@
+---
+title: Core Features of Test
+description: Explore the essential tools and capabilities that make Test a powerful documentation management platform.
+---
+
+## Overview
+
+Test provides a comprehensive suite of tools for managing your project documentation. You can organize content hierarchically, collaborate with teams in real-time, track changes through version history, and find information quickly with advanced search. These features work together to streamline your documentation workflow.
+
+<Callout kind="info">
+Test's core features integrate seamlessly, allowing you to focus on content creation rather than management overhead.
+</Callout>
+
+## Key Features
+
+Discover the main capabilities at a glance.
+
+<Columns cols={2}>
+  <Card title="Document Organization" icon="folder" href="#document-organization">
+    Structure your docs with folders, pages, and subpages for intuitive navigation.
+  </Card>
+  <Card title="Collaboration" icon="users" href="#collaboration">
+    Invite team members and share docs securely with granular permissions.
+  </Card>
+  <Card title="Version History" icon="git-branch" href="#version-history">
+    Track every change with full revision history and easy rollbacks.
+  </Card>
+  <Card title="Search" icon="search" href="#search">
+    Find content instantly across your entire documentation space.
+  </Card>
+</Columns>
+
+## Document Organization
+
+Organize your documentation into a clear hierarchy. Create folders to group related pages, and use drag-and-drop to reorder content.
+
+<Steps>
+  <Step title="Create a Folder" icon="folder-plus">
+    Navigate to your workspace root and click the new folder button.
+  </Step>
+  <Step title="Add Pages" icon="file-plus">
+    Inside the folder, create new pages or import existing Markdown files.
+  </Step>
+  <Step title="Reorder" icon="move">
+    Drag pages and folders to customize the navigation structure.
+  </Step>
+</Steps>
+
+```javascript
+// Example structure in JSON export
+{
+  "workspace": {
+    "folders": [
+      { "name": "API Reference", "pages": ["endpoints.md", "auth.md"] },
+      { "name": "Guides", "pages": ["quickstart.md"] }
+    ]
+  }
+}
+```
+
+## Collaboration and Sharing
+
+Collaborate effortlessly with your team. Assign roles like editor or viewer, and generate shareable links.
+
+<Tabs>
+  <Tab title="Team Invite" icon="mail">
+    Send invites via email or Slack integration.
+    
+    <CodeGroup tabs="API,CLI">
+    ````javascript
+    // Invite via API
+    fetch('https://api.example.com/v1/workspaces/{workspaceId}/invites', {
+      method: 'POST',
+      headers: { 'Authorization': 'Bearer YOUR_TOKEN' },
+      body: JSON.stringify({
+        email: 'team@company.com',
+        role: 'editor'
+      })
+    });
+    ````
+    ````bash
+    # CLI command
+    test invite --workspace {workspaceId} --email team@company.com --role editor
+    ````
+    </CodeGroup>
+  </Tab>
+  <Tab title="Public Sharing" icon="globe">
+    Create read-only links for external stakeholders.
+    
+    Share link example: `https://docs.example.com/w/{workspaceId}/page-slug`
+  </Tab>
+</Tabs>
+
+<Callout kind="tip">
+Use role-based access to control who can edit sensitive documentation.
+</Callout>
+
+## Version History Tracking
+
+Every edit creates a new version. View diffs, restore previous states, or compare changes side-by-side.
+
+<Expandable title="Advanced Version Controls" default-open="false">
+  You can branch documentation for experiments and merge changes later.
+  
+  ```mermaid
+  graph TD
+      A[Initial Doc] --> B[Edit 1]
+      B --> C[Edit 2]
+      C --> D[Branch: Draft]
+      D --> E[Merge Back]
+      E --> F[Latest]
+  ```
+</Expandable>
+
+## Search Functionality
+
+Search across all documents with full-text indexing. Filter by folder, tags, or date.
+
+<ParamField query="q" param-type="string" required="true">
+  Your search query term.
+</ParamField>
+
+<ParamField query="folder" param-type="string" required="false">
+  Limit results to a specific folder ID.
+</ParamField>
+
+Example API usage:
+
+<CodeGroup tabs="JavaScript,cURL">
+````javascript
+// Search docs
+const results = await fetch(`https://api.example.com/v1/search?q=authentication&folder={folderId}`, {
+  headers: { 'Authorization': 'Bearer YOUR_TOKEN' }
+});
+````
+````bash
+curl "https://api.example.com/v1/search?q=authentication" \
+  -H "Authorization: Bearer YOUR_TOKEN"
+````
+</CodeGroup>
+
+## Next Steps
+
+<Columns cols={3}>
+  <Card title="Quickstart" icon="rocket" href="/quickstart">
+    Set up your first workspace.
+  </Card>
+  <Card title="Authentication" icon="shield" href="/authentication">
+    Secure your docs.
+  </Card>
+  <Card title="Advanced Guides" icon="book-open" href="/guides">
+    Dive deeper.
+  </Card>
+</Columns>
